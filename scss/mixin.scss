@@ -6,6 +6,11 @@
   font-size: 28px;
   position: relative;
   padding-left: 50px;
+  @include maxWidth(767px) {
+    font-size: 23px;
+    padding-left: 0px;
+    text-align: center;
+  }
   &::before {
     content: "";
     background: #0479c9;
@@ -15,12 +20,18 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    @include maxWidth(767px) {
+      display: none;
+    }
   }
 }
 @mixin title_no_before {
   color: #0479c9;
   font-family: bold;
   font-size: 28px;
+  @include maxWidth(767px) {
+    font-size: 23px;
+  }
   position: relative;
   text-transform: uppercase;
 }
