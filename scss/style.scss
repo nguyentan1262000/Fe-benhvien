@@ -391,7 +391,7 @@ header {
       @include maxWidth(991px) {
         width: 70%;
         right: -70%;
-        top: 85px;
+        top: 65px;
         position: fixed;
         height: 100%;
         background: #fff;
@@ -761,7 +761,7 @@ header {
         }
         .item {
           @include maxWidth(991px) {
-            width: calc(50% - 20px);
+            width: calc(50% - 5px);
           }
           display: flex;
           align-items: center;
@@ -1381,10 +1381,10 @@ header {
     align-items: center;
     @include maxWidth(991px) {
       justify-content: center;
+      flex-direction: column;
     }
     @include maxWidth(767px) {
       padding: 15px 0px;
-      flex-direction: column;
     }
     .left {
       width: 50%;
@@ -1438,7 +1438,7 @@ header {
     }
     .right {
       width: 50%;
-      @include maxWidth(767px) {
+      @include maxWidth(991px) {
         width: 100%;
         margin-top: 15px;
       }
@@ -2011,7 +2011,7 @@ footer {
     justify-content: center;
     align-items: center;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     .tap-icon-zalo {
       position: fixed;
       left: 10px;

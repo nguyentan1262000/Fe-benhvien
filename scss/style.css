@@ -389,7 +389,7 @@ header .header .header-top .header-top-about .right .tabbar.active .icon .bar3 {
   header .header .header-bottom {
     width: 70%;
     right: -70%;
-    top: 85px;
+    top: 65px;
     position: fixed;
     height: 100%;
     background: #fff;
@@ -842,7 +842,7 @@ header .header .header-bottom .menu .form-search .input-search {
 }
 @media (max-width: 991px) {
   .index-top .introduction .right .introduction-number .item {
-    width: calc(50% - 20px);
+    width: calc(50% - 5px);
   }
 }
 .index-top .introduction .right .introduction-number .item .content {
@@ -1609,12 +1609,12 @@ header .header .header-bottom .menu .form-search .input-search {
 @media (max-width: 991px) {
   .advise .advise-about {
     justify-content: center;
+    flex-direction: column;
   }
 }
 @media (max-width: 767px) {
   .advise .advise-about {
     padding: 15px 0px;
-    flex-direction: column;
   }
 }
 .advise .advise-about .left {
@@ -1676,7 +1676,7 @@ header .header .header-bottom .menu .form-search .input-search {
 .advise .advise-about .right {
   width: 50%;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .advise .advise-about .right {
     width: 100%;
     margin-top: 15px;
@@ -2251,7 +2251,7 @@ footer .footer .footer-bottom .footer-bottom-about .right a:hover {
   justify-content: center;
   align-items: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .tap-body .tap-icon-zalo {
     position: fixed;
     left: 10px;
