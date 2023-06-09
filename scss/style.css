@@ -1651,7 +1651,7 @@ header .header .header-bottom .menu .form-search .input-search {
 }
 @media (max-width: 991px) {
   .advise .advise-about .left .advise-title {
-    padding: 0px 50px;
+    padding: 0px 150px;
   }
 }
 .advise .advise-about .left .advise-text {
@@ -1663,14 +1663,19 @@ header .header .header-bottom .menu .form-search .input-search {
 }
 @media (max-width: 991px) {
   .advise .advise-about .left .advise-text {
-    padding: 0px 50px;
+    padding: 0px 100px;
+    text-align: center;
   }
 }
 .advise .advise-about .left .advise-hotline {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 15px;
+}
+@media (max-width: 992px) {
+  .advise .advise-about .left .advise-hotline {
+    justify-content: center;
+  }
 }
 .advise .advise-about .left .advise-hotline .advise-hotline-content {
   display: flex;
@@ -4696,6 +4701,20 @@ footer .footer .footer-bottom .footer-bottom-about .right a:hover {
 @media (max-width: 767px) {
   .service-detail .about .bottom .right .title {
     font-size: 23px;
+  }
+}
+.service-detail .about .bottom .right .list-item {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+@media (max-width: 991px) {
+  .service-detail .about .bottom .right .list-item {
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .service-detail .about .bottom .right .list-item {
+    padding-bottom: 15px;
   }
 }
 .service-detail .about .bottom .right .list-item .item {

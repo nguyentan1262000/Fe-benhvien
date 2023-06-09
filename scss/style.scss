@@ -1411,7 +1411,7 @@ header {
         padding-right: 100px;
         margin-bottom: 35px;
         @include maxWidth(991px) {
-          padding: 0px 50px;
+          padding: 0px 150px;
         }
       }
       .advise-text {
@@ -1421,14 +1421,17 @@ header {
         margin-bottom: 40px;
         padding-right: 120px;
         @include maxWidth(991px) {
-          padding: 0px 50px;
+          padding: 0px 100px;
+          text-align: center;
         }
       }
       .advise-hotline {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 15px;
+        @include maxWidth(992px) {
+          justify-content: center;
+        }
         .advise-hotline-content {
           display: flex;
           flex-direction: column;
@@ -3512,6 +3515,8 @@ footer {
           margin: 17px 0px;
         }
         .list-item {
+          @include paddingBottom(15px);
+          border-bottom: 1px solid #ddd;
           .item {
             display: flex;
             padding: 17px 0px;
