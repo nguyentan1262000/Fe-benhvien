@@ -1,0 +1,437 @@
+@import "./variable";
+
+@mixin title {
+  color: #0479c9;
+  font-family: semibold;
+  font-size: 28px;
+  position: relative;
+  padding-left: 50px;
+  &::before {
+    content: "";
+    background: #0479c9;
+    height: 2px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+@mixin title_no_before {
+  color: #0479c9;
+  font-family: bold;
+  font-size: 28px;
+  position: relative;
+  text-transform: uppercase;
+}
+@mixin button-more {
+  text-decoration: none;
+  padding: 8px 30px;
+  color: #0479c9;
+  border: 1px solid #0479c9;
+  font-size: 15px;
+  border-radius: 25px;
+  font-family: bold;
+  transition: 0.1s;
+  img {
+    margin-left: 5px;
+  }
+  &:hover {
+    color: #fff;
+    background: #047ac971;
+  }
+}
+@mixin flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin widthEqualsHeight($width) {
+  width: $width;
+  height: $width;
+}
+@mixin _maxwidth($max) {
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin _maxwidth($min) {
+  @media (max-width: $min) {
+    @content;
+  }
+}
+
+@mixin _minToMaxWidth($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin imgMaxWidth {
+  max-width: 100%;
+  max-height: 100%;
+  object-position: center;
+}
+
+@mixin backgroundUrl($url) {
+  background: $url no-repeat;
+  background-size: 100% 100%;
+
+  @include maxWidth(991px) {
+    background-size: auto 100%;
+    background-position: center;
+  }
+}
+@mixin gridItem($num: 2) {
+  display: grid;
+  grid-template-columns: repeat($num, 1fr);
+}
+@mixin maxWidth($maxwidth) {
+  @media (max-width: $maxwidth) {
+    @content;
+  }
+}
+
+@mixin minWidth($minwidth) {
+  @media (min-width: $minwidth) {
+    @content;
+  }
+}
+
+@mixin _max-text($num) {
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+
+@mixin _loading {
+  .load.text-center {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+
+    &.show {
+      display: flex !important;
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    p {
+      color: #fff;
+      z-index: 2;
+    }
+
+    img {
+      z-index: 2;
+      width: 100px;
+    }
+  }
+}
+
+@mixin font($fontfa, $fontsize, $color) {
+  font-family: $fontfa;
+  font-size: $fontsize;
+  color: $color;
+}
+
+@mixin widthMinMax($minwidth, $maxwidth) {
+  @media (min-width: $minwidth) and (max-width: $maxwidth) {
+    @content;
+  }
+}
+
+@mixin resizeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin hiddenScroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin flexCenter($x: 1, $y: 1) {
+  display: flex;
+
+  @if $x == 1 and $y == 1 {
+    align-items: center;
+    justify-content: center;
+  } @else if $x == 1 and $y == 0 {
+    justify-content: center;
+  } @else if $x == 0 and $y == 1 {
+    align-items: center;
+  }
+}
+
+@mixin gridRepeat($num: 2) {
+  display: grid;
+  grid-template-columns: repeat($num, 1fr);
+}
+
+@mixin positionCenter($x: 1, $y: 1) {
+  position: absolute;
+
+  @if $x == 1 and $y == 1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $x == 1 and $y == 0 {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $x == 0 and $y == 1 {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@mixin positionFixedCenter($x: 1, $y: 1) {
+  position: fixed;
+
+  @if $x == 1 and $y == 1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $x == 1 and $y == 0 {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $x == 0 and $y == 1 {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin resetInputBtnTextArea($input: 1, $btn: 1, $textarea: 1) {
+  border: none;
+  outline: none;
+  background: 0 0;
+  @include font(Arial, $--font-size-p, $--text-color);
+
+  @if $input == 1 and $btn == 0 and $textarea == 0 {
+    padding-left: 10px;
+
+    &::placeholder {
+      @include font(Arial, $--font-size-p-light, $--placeholder-color);
+    }
+  } @else if $input == 0 and $btn == 1 and $textarea == 0 {
+    padding: 10px 15px;
+  } @else if $input == 0 and $btn == 0 and $textarea == 1 {
+    padding-left: 10px;
+    padding-top: 10px;
+    resize: none;
+
+    &::placeholder {
+      @include font(Arial, $--font-size-p-light, $--placeholder-color);
+    }
+  }
+}
+
+@mixin paddingBotTop($size) {
+  padding: $size 0;
+
+  @include maxWidth(991px) {
+    padding: 20px 0;
+  }
+
+  @include maxWidth(767px) {
+    padding: 15px 0;
+  }
+}
+
+@mixin marginBottom($size) {
+  margin-bottom: $size;
+
+  @include maxWidth(991px) {
+    margin-bottom: 20px;
+  }
+
+  @include maxWidth(767px) {
+    margin-bottom: 15px;
+  }
+}
+
+@mixin paddingBottom($size) {
+  padding-bottom: $size;
+
+  @include maxWidth(991px) {
+    padding-bottom: 20px;
+  }
+
+  @include maxWidth(767px) {
+    padding-bottom: 15px;
+  }
+}
+
+@mixin linkTopPage {
+  margin: 20px 0px 17px 0px;
+  @include _maxwidth(767px) {
+    margin: 15px 0px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    &:last-child {
+      color: $--color_title;
+    }
+    &:hover {
+      color: $--color_title;
+    }
+  }
+  i {
+    margin: 0 15px;
+    font-size: 11px;
+  }
+}
+@mixin backGroundAfter {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 580px;
+  width: 100%;
+  background-image: radial-gradient(
+      90% 100% at left,
+      #adf3fa 25%,
+      #ffffff 50%,
+      #0000
+    ),
+    radial-gradient(90% 100% at right, #adf3fa 25%, #ffffff 50%, #0000);
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+@mixin itemImg {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  img {
+    width: 100%;
+    transition: transform 0.2s;
+  }
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+@mixin owlNavNoBorder($number_top) {
+  .owl-nav {
+    .owl-next,
+    .owl-prev {
+      position: absolute;
+      top: $number_top;
+      transform: translateY(-50%);
+      @include _maxwidth(767px) {
+        margin-top: 15px;
+        position: static;
+      }
+      &:hover {
+        i {
+          color: #0479c9;
+          background: #96eef8 !important;
+        }
+      }
+      i {
+        font-size: 30px;
+      }
+    }
+    .owl-prev {
+      left: -35px;
+    }
+    .owl-next {
+      right: -35px;
+    }
+  }
+}
+@mixin cssNumberList {
+  .number-list {
+    margin: 35px 0px 50px 0px;
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    @include _maxwidth(768px) {
+      margin: 15px 0px;
+    }
+    .number {
+      display: flex;
+      overflow: hidden;
+      gap: 5px;
+      .item {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #c7c7c7;
+        border-radius: 18px;
+        background: #fff;
+        @include flexcenter;
+
+        a {
+          text-decoration: none;
+          color: #606060;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        &:hover {
+          background: #0069b4;
+          a {
+            color: #fff;
+          }
+        }
+      }
+      .active {
+        background: #0069b4;
+        a {
+          color: #fff;
+        }
+      }
+    }
+    .item {
+      width: 83px;
+      height: 35px;
+      border: 1px solid #c7c7c7;
+      border-radius: 18px;
+      background: #fff;
+      @include flexcenter;
+
+      a {
+        text-decoration: none;
+        color: #606060;
+        width: 83px;
+        font-weight: 500;
+        @include flexcenter;
+        font-size: 15px;
+        gap: 14px;
+        i {
+          font-size: 7px;
+        }
+      }
+      &:hover {
+        background: #0069b4;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
